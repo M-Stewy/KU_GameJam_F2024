@@ -32,11 +32,12 @@ public class Dash : MonoBehaviour
 
     void DoDash()
     {
+        PC.canDash = false;
         Debug.Log("test for Dash");
         rb.linearVelocity = Vector2.zero;
         if(PC.facingRight) rb.AddForce(new Vector2(dashForce, 0), ForceMode2D.Impulse);
         else rb.AddForce(new Vector2(-dashForce, 0), ForceMode2D.Impulse);
-        PC.canDash = false;
+        
     }
 
 }
