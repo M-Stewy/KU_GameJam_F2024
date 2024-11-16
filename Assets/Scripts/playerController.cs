@@ -8,25 +8,38 @@ public class playerController : MonoBehaviour
     [SerializeField]
     private CapsuleCollider2D cc;
     private Vector2 moveDir;
-
+    [HideInInspector]
+    public bool facingRight;
 
     [SerializeField] LayerMask GroundLayer;
 
-    private bool isGrounded;
-    private bool canJump;
-    private bool jumping;
+    public bool isGrounded { get; private set; }
+    public bool canDash;
+    [HideInInspector]
+    public bool jumping;
     private float jumpTimer;
     private int jumpsLeft;
     private int jumpsPressed;
 
+    [Tooltip("The amount of frames the base jump can last")]
     [SerializeField] private float JumpTime = 60;
-    [SerializeField] float jumpPower;
+    [Tooltip("the force the jump applies")]
+    public float jumpPower;
+    [Tooltip("The amount of extra Jumps after the initial")]
     [SerializeField] int ExtraJumpAmount;
+    [Tooltip("Force at which player falls")]
     [SerializeField] float FallForce;
 
 
     [SerializeField] float movespeed;
 
+    public enum size
+    {
+        Small = 0,
+        Medium = 1,
+        Large = 2,
+    }
+    public size PlayerSize;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,18 +54,20 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(moveDir.x > 0)
+        {
+            facingRight = true;
+        }else if(moveDir.x < 0)
+        {
+            facingRight = false;
+        }
+
         if (CheckGrounded())
         {
-            jumpsLeft = ExtraJumpAmount;
-            jumpsPressed = 0;
+            ResetJumpVars();
             isGrounded = true;
 
         } else isGrounded = false;
-
-        if (isGrounded)
-        {
-            canJump = true;
-        }
     }
 
     private void FixedUpdate()
@@ -60,7 +75,7 @@ public class playerController : MonoBehaviour
         MovePlayer();
 
         if (jumping && isGrounded) Jump();
-        else if(jumping && !isGrounded && jumpsPressed == 1) AirJump();
+        else if(jumping && !isGrounded && jumpsPressed >= 1 && jumpsLeft > 0) AirJump();
         if(!jumping && !isGrounded)  Drop();
         //Debug.Log(jumping);
     }
@@ -84,24 +99,21 @@ public class playerController : MonoBehaviour
         {
             jumpsPressed++;
             jumping = true;
-            Debug.Log("testingjumpP" + jumpsPressed);
         }
         if (context.canceled)
         {
             jumping = false;
             jumpTimer = JumpTime;
-            Debug.Log("Stop Jump1");
         }
     }
-
 
     RaycastHit2D ray;
     [SerializeField] Vector3 GroundCheckFixer;
     [SerializeField] Vector3 GroundCheckOffset;
     private bool CheckGrounded()
     {
-        GroundCheckOffset = new Vector3(GroundCheckOffset.x, cc.bounds.size.y / 2, GroundCheckOffset.z);
-        GroundCheckFixer = new Vector3(GroundCheckFixer.x, cc.size.y / 2 + .5f, GroundCheckFixer.z);
+        //GroundCheckOffset = new Vector3(GroundCheckOffset.x, cc.bounds.size.y / 2, GroundCheckOffset.z);
+        //GroundCheckFixer = new Vector3(GroundCheckFixer.x, cc.size.y / 2, GroundCheckFixer.z);
         ray = Physics2D.BoxCast(cc.bounds.center - GroundCheckOffset, cc.bounds.size - GroundCheckFixer, 0, Vector2.down, 0.1f, GroundLayer);
         return ray.collider != null;
     }
@@ -129,7 +141,6 @@ public class playerController : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("Jumping1");
         if (jumpTimer > 0)
         {
             jumpTimer--;
@@ -138,13 +149,11 @@ public class playerController : MonoBehaviour
         else
         {
             jumping = false;
-            Debug.Log("Stop Jump2");
         }
         
     }
     private void AirJump()
     {
-        Debug.Log("Jumping2");
         rb.AddForce(new Vector2(rb.linearVelocity.x, jumpPower * 50));
         jumpsLeft--;
         jumping = false;
@@ -153,5 +162,13 @@ public class playerController : MonoBehaviour
     private void Drop()
     {
         rb.AddForce(new Vector2(rb.linearVelocityX, -FallForce));
+    }
+
+    //used whenever something 
+    public void ResetJumpVars()
+    {
+        jumpsLeft = ExtraJumpAmount;
+        jumpsPressed = 0;
+        canDash = true;
     }
 }
