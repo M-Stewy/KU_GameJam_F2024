@@ -17,6 +17,7 @@ public class playerController : MonoBehaviour
 
     public bool isGrounded { get; private set; }
     public bool canDash;
+    public bool StopGrav;
     [HideInInspector]
     public bool jumping;
     private float jumpTimer;
@@ -31,6 +32,8 @@ public class playerController : MonoBehaviour
     [SerializeField] int ExtraJumpAmount;
     [Tooltip("Force at which player falls")]
     [SerializeField] float FallForce;
+
+    [SerializeField] float JumpMoveSpeedMultipler;
 
 
     [SerializeField] float movespeed;
@@ -70,8 +73,11 @@ public class playerController : MonoBehaviour
         {
             ResetJumpVars();
             isGrounded = true;
-
-        } else isGrounded = false;
+            canDash = true;
+        }
+        else {
+            isGrounded = false; 
+        }
     }
 
     private void FixedUpdate()
@@ -141,7 +147,10 @@ public class playerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        rb.AddForce(new Vector2(moveDir.x * movespeed,rb.linearVelocity.y));
+        if(isGrounded)
+            rb.AddForce(new Vector2(moveDir.x * movespeed,rb.linearVelocity.y));
+        else
+            rb.AddForce(new Vector2(moveDir.x * movespeed * JumpMoveSpeedMultipler, rb.linearVelocity.y));
     }
 
     private void Jump()
@@ -166,15 +175,16 @@ public class playerController : MonoBehaviour
 
     private void Drop()
     {
+        if (StopGrav) return;
         rb.AddForce(new Vector2(rb.linearVelocityX, -FallForce));
     }
 
     //used whenever something 
-    public void ResetJumpVars()
+    public void ResetJumpVars(bool stillDash = false)
     {
         jumpsLeft = ExtraJumpAmount;
         jumpsPressed = 0;
-        canDash = true;
+        if(stillDash) canDash = true;
     }
 
     public void KillSelf() // makes it so the player can not do anything at all anymore because thats what happens when you die :O

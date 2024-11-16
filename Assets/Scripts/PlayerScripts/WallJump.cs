@@ -27,7 +27,7 @@ public class WallJump : MonoBehaviour
 
         if (touchingWall)
         {
-            PC.ResetJumpVars();
+            PC.ResetJumpVars(false);
         }
 
     }
