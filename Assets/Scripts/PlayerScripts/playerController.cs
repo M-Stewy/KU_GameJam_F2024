@@ -91,7 +91,6 @@ public class playerController : MonoBehaviour
         if (context.started)
         {
             moveDir = context.ReadValue<Vector2>();
-            Debug.Log(moveDir);
         }
         if (context.canceled)
         {
