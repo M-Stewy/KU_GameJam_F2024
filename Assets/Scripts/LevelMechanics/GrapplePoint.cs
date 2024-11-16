@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class GrapplePoint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //this isnt really nessicary at the moment, but I thought I would make this script in case we want this to be more customizable in the future (if we want specific angles or whatever)
+    [SerializeField] float GrappleRadius;
+
     void Start()
     {
-        
+        GetComponentInChildren<CircleCollider2D>().radius = GrappleRadius;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDrawGizmos()
     {
-        
+        GetComponentInChildren<CircleCollider2D>().radius = GrappleRadius;
     }
+
 }
