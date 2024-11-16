@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class playerController : MonoBehaviour
 {
+    bool isDead = false;
+
     private Rigidbody2D rb;
     [SerializeField]
     private CapsuleCollider2D cc;
@@ -54,6 +56,8 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isDead) return;
+
         if(moveDir.x > 0)
         {
             facingRight = true;
@@ -72,6 +76,8 @@ public class playerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDead) return;
+
         MovePlayer();
 
         if (jumping && isGrounded) Jump();
@@ -170,5 +176,35 @@ public class playerController : MonoBehaviour
         jumpsLeft = ExtraJumpAmount;
         jumpsPressed = 0;
         canDash = true;
+    }
+
+    public void KillSelf() // makes it so the player can not do anything at all anymore because thats what happens when you die :O
+    {
+        isDead = true;
+        if(TryGetComponent<PlayerInput>(out PlayerInput input))
+        {
+            input.enabled = false;  
+        }
+        if(TryGetComponent<Dash>(out Dash d))
+        {
+            d.enabled = false;
+        }
+        if(TryGetComponent<WallJump>(out WallJump wal))
+        {
+            wal.enabled = false;
+        }
+        if (TryGetComponent<Grapple>(out Grapple g))
+        {
+            g.enabled = false;
+        }
+        if (TryGetComponent<ShrinkNGrow>(out ShrinkNGrow sng))
+        {
+            sng.enabled = false;
+        }
+        if(TryGetComponent<PlayerInteract>(out PlayerInteract pi))
+        {
+            pi.enabled = false;
+        }
+
     }
 }
