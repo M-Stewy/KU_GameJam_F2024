@@ -97,6 +97,7 @@ public class playerController : MonoBehaviour
         if (context.started)
         {
             moveDir = context.ReadValue<Vector2>();
+            Debug.Log("Input is being gathered.");
         }
         if (context.canceled)
         {
@@ -158,7 +159,8 @@ public class playerController : MonoBehaviour
         if (jumpTimer > 0)
         {
             jumpTimer--;
-            rb.AddForce(new Vector2(rb.linearVelocity.x, jumpPower * 10));
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpPower);
+            //rb.AddForce(new Vector2(rb.linearVelocity.x, jumpPower * 10));
         }
         else
         {
@@ -168,7 +170,8 @@ public class playerController : MonoBehaviour
     }
     private void AirJump()
     {
-        rb.AddForce(new Vector2(rb.linearVelocity.x, jumpPower * 50));
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpPower * 1.25f);
+        //rb.AddForce(new Vector2(rb.linearVelocity.x, jumpPower * 50));
         jumpsLeft--;
         jumping = false;
     }
