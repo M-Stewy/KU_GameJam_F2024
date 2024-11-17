@@ -292,7 +292,7 @@ public class playerController : MonoBehaviour
         switch (sfxToPlay)
         {
             case "Dash":
-                asses[2].volume = .56f;
+                asses[2].volume = .46f;
                 asses[2].PlayOneShot(DashSFX);
                 break;
             case "WallJump":
@@ -304,11 +304,11 @@ public class playerController : MonoBehaviour
                 asses[2].PlayOneShot(Grapple2);
                 break;
             case "Shrink":
-                asses[2].volume = 1f;
+                asses[2].volume = 1.75f;
                 asses[2].PlayOneShot(ShrinkSFX);
                 break;
             case "Grow":
-                asses[2].volume = 1f;
+                asses[2].volume = 1.75f;
                 asses[2].PlayOneShot(GrowSFX);
                 break;
         }
