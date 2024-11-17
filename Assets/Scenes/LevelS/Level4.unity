@@ -2971,7 +2971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6534085876959673179, guid: 54f4db105492c154c8780e295c655101, type: 3}
       propertyPath: ExtraJumpAmount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7891349586326444692, guid: 54f4db105492c154c8780e295c655101, type: 3}
       propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.size
@@ -3011,7 +3011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8076307640599451629, guid: 54f4db105492c154c8780e295c655101, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.6
+      value: -18.91
       objectReference: {fileID: 0}
     - target: {fileID: 8076307640599451629, guid: 54f4db105492c154c8780e295c655101, type: 3}
       propertyPath: m_LocalPosition.z

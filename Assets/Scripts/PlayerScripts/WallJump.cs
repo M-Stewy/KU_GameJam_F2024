@@ -27,8 +27,12 @@ public class WallJump : MonoBehaviour
 
         if (touchingWall)
         {
-            
+            PC.animator.SetBool("isOnWall", true);
             PC.ResetJumpVars(false);
+        }
+        if (!touchingWall)
+        {
+            PC.animator.SetBool("isOnWall", false);
         }
         
             
@@ -39,14 +43,11 @@ public class WallJump : MonoBehaviour
     {
         if(touchingWall && PC.jumping)
         {
-            PC.animator.SetBool("JumpedOffWall", false);
-            PC.animator.SetBool("isOnWall", true);
+            
+            
             DoWallJump();
         }
-        if (!touchingWall)
-        {
-            PC.animator.SetBool("isOnWall", false);
-        }
+        
         
 
 
