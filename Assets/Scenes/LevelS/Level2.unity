@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b411a39acf13bb04b9eb2b13c90f4c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  load: {fileID: 1554852784}
 --- !u!66 &254201452
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -11896,6 +11897,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 647e21889eee23646abdba9c54d73bd1, type: 3}
+--- !u!114 &1554852784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7112647960571931828, guid: 647e21889eee23646abdba9c54d73bd1, type: 3}
+  m_PrefabInstance: {fileID: 1554852783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a30c9056b27b749991eb047799260b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1581658474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 659127077520979665, guid: 35527eecb0d0e4d4da2aed2a33e8d0e6, type: 3}
