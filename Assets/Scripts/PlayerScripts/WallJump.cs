@@ -42,6 +42,8 @@ public class WallJump : MonoBehaviour
 
     void DoWallJump()
     {
+        PC.PlayerOtherSFXs("WallJump");
+
         if(facingRight)
         {
             rb.AddForce(new Vector2(-jumpPowerHor, jumpPowerVer),ForceMode2D.Impulse);

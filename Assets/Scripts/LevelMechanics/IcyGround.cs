@@ -11,10 +11,15 @@ public class IcyGround : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Rigidbody2D>().linearDamping = Slipperness;
+            collision.gameObject.GetComponent<playerController>().currTile = playerController.currentTile.icy;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        collision.gameObject.GetComponent<Rigidbody2D>().linearDamping = 1; // needs to be default value, make it auto later
+        if (collision.collider.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Rigidbody2D>().linearDamping = 1; // needs to be default value, make it auto later
+            collision.gameObject.GetComponent<playerController>().currTile = playerController.currentTile.normal;
+        }
     }
 }

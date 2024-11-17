@@ -33,6 +33,7 @@ public class Dash : MonoBehaviour
 
     IEnumerator DoDash()
     {
+        PC.PlayerOtherSFXs("Dash");
         PC.canDash = false;
         PC.StopGrav = true;
         Debug.Log("test for Dash");

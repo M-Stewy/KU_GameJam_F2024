@@ -38,6 +38,50 @@ public class playerController : MonoBehaviour
 
     [SerializeField] float movespeed;
 
+    [Header("Sound effects")]
+    AudioSource[] asses;
+    [SerializeField] AudioClip deathNoise1;
+    [SerializeField] AudioClip deathNoise2;
+
+    [SerializeField] AudioClip NormalGroundWalk;
+    [SerializeField] AudioClip IcyWalk;
+    [SerializeField] AudioClip SnowyWalk;
+
+    public AudioClip DashSFX;
+    public AudioClip WallJumpSFX;
+
+    public AudioClip ShrinkSFX;
+    public AudioClip GrowSFX;
+
+    public AudioClip Grapple1;
+    public AudioClip Grapple2;
+    public AudioClip Grapple3;
+
+
+
+    public enum currentAction {
+        idle= 0,
+        walking = 1,
+        jumping = 2,
+        falling = 3,
+        wallClinging = 4,
+        dashing = 5,
+        shrinking = 6,
+        growing = 7,
+        grappling = 8,
+        walljumping = 9
+    }
+    public currentAction curAct;
+
+    public enum currentTile
+    {
+        normal = 0,
+        icy = 1,
+        snowy = 2
+    }
+    public currentTile currTile;
+
+
     public enum size
     {
         Small = 0,
@@ -54,6 +98,7 @@ public class playerController : MonoBehaviour
 
         jumpsLeft = ExtraJumpAmount;
         jumpTimer = JumpTime;
+        asses = GetComponentsInChildren<AudioSource>();
     }
 
     // Update is called once per frame
@@ -78,6 +123,9 @@ public class playerController : MonoBehaviour
         else {
             isGrounded = false; 
         }
+
+        if (isGrounded && moveDir.x != 0) PlayWalkSFX(false);
+        if(moveDir.x == 0 || !isGrounded) PlayWalkSFX(true);
     }
 
     private void FixedUpdate()
@@ -89,7 +137,6 @@ public class playerController : MonoBehaviour
         if (jumping && isGrounded) Jump();
         else if(jumping && !isGrounded && jumpsPressed >= 1 && jumpsLeft > 0) AirJump();
         if(!jumping && !isGrounded)  Drop();
-        //Debug.Log(jumping);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -97,7 +144,6 @@ public class playerController : MonoBehaviour
         if (context.started)
         {
             moveDir = context.ReadValue<Vector2>();
-            Debug.Log("Input is being gathered.");
         }
         if (context.canceled)
         {
@@ -111,6 +157,7 @@ public class playerController : MonoBehaviour
         {
             jumpsPressed++;
             jumping = true;
+            asses[1].Play();
         }
         if (context.canceled)
         {
@@ -124,8 +171,6 @@ public class playerController : MonoBehaviour
     [SerializeField] Vector3 GroundCheckOffset;
     private bool CheckGrounded()
     {
-        //GroundCheckOffset = new Vector3(GroundCheckOffset.x, cc.bounds.size.y / 2, GroundCheckOffset.z);
-        //GroundCheckFixer = new Vector3(GroundCheckFixer.x, cc.size.y / 2, GroundCheckFixer.z);
         ray = Physics2D.BoxCast(cc.bounds.center - GroundCheckOffset, cc.bounds.size - GroundCheckFixer, 0, Vector2.down, 0.1f, GroundLayer);
         return ray.collider != null;
     }
@@ -160,7 +205,6 @@ public class playerController : MonoBehaviour
         {
             jumpTimer--;
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpPower);
-            //rb.AddForce(new Vector2(rb.linearVelocity.x, jumpPower * 10));
         }
         else
         {
@@ -190,8 +234,76 @@ public class playerController : MonoBehaviour
         if(stillDash) canDash = true;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="stop"> stops the function </param>
+    public void PlayWalkSFX(bool stop = false)
+    {
+        if (stop) { 
+            StartCoroutine(lowerVolume(true, 0));
+            return;
+        }
+        if (asses[0].isPlaying) return;
+        asses[0].volume = 0.55f;
+        switch (currTile)
+        {
+            case currentTile.normal:
+                asses[0].PlayOneShot(NormalGroundWalk);
+                Debug.Log("Norma");
+                break;    
+            case currentTile.icy:
+                asses[0].PlayOneShot(IcyWalk);
+                Debug.Log("Icy");
+                break;
+            case currentTile.snowy:
+                asses[0].PlayOneShot(SnowyWalk);
+                Debug.Log("Snowy");
+                break;
+        }
+    }
+
+    public void PlayerOtherSFXs(string sfxToPlay)
+    {
+        switch(sfxToPlay)
+        {
+            case "Dash":
+                asses[2].PlayOneShot(DashSFX);
+                break;
+            case "WallJump":
+                asses[2].PlayOneShot(WallJumpSFX);
+                break;
+            case "Grapple":
+                asses[2].PlayOneShot(Grapple1);
+                break;
+            case "Shrink":
+                asses[2].PlayOneShot(ShrinkSFX);
+                break;
+            case "Grow":
+                asses[2].PlayOneShot(GrowSFX);
+                break;
+        }
+    }
+
+    IEnumerator lowerVolume(bool lower, int index)
+    {
+        if (lower)
+        {
+           if(asses[index].volume > 0) 
+           { 
+                asses[index].volume -= 0.01f;
+                yield return new WaitForSeconds(0.1f);
+                lowerVolume(true, index);
+           } else asses[index].Stop();
+        }
+    }
+
+
     public void KillSelf() // makes it so the player can not do anything at all anymore because thats what happens when you die :O
     {
+        if (Random.Range(0, 2) == 0) AudioSource.PlayClipAtPoint(deathNoise2, transform.position, 1.2f);
+        else AudioSource.PlayClipAtPoint(deathNoise1, transform.position, 1.1f);
+
         isDead = true;
         if(TryGetComponent<PlayerInput>(out PlayerInput input))
         {

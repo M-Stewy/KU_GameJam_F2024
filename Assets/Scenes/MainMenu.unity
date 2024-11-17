@@ -1136,6 +1136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3075e0f0a1da924ea12c0e97934f0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
+  PrevScene: 
 --- !u!1 &1271035270
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,12 +54,15 @@ public class ShrinkNGrow : MonoBehaviour
     {
         if(context.started)
         {
+            
             if(PC.PlayerSize == playerController.size.Large)
             {
+                PC.PlayerOtherSFXs("Shrink");
                 PC.PlayerSize = playerController.size.Medium;
             }
             else if(PC.PlayerSize == playerController.size.Medium) 
             {
+                PC.PlayerOtherSFXs("Shrink");
                 PC.PlayerSize = playerController.size.Small;
             }
 
@@ -73,10 +76,12 @@ public class ShrinkNGrow : MonoBehaviour
             
             if (PC.PlayerSize == playerController.size.Medium)
             {
+                PC.PlayerOtherSFXs("Grow");
                 PC.PlayerSize = playerController.size.Large;
             }
             else if (PC.PlayerSize == playerController.size.Small)
             {
+                PC.PlayerOtherSFXs("Grow");
                 PC.PlayerSize = playerController.size.Medium;
             }
         }

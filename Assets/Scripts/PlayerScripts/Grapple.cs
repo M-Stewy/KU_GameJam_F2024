@@ -52,6 +52,7 @@ public class Grapple : MonoBehaviour
             Debug.Log("Grappleing");
             if(canGrap && !isGrappling)
             {
+                PC.PlayerOtherSFXs("Grapple");
                 ConnectPlayerToPoint(graplePoint);
             }
             else if(isGrappling)
