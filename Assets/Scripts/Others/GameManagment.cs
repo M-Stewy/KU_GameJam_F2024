@@ -8,12 +8,35 @@ public class GameManagment : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        if (Instance == null)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
             Instance = this;
-        else Instance.gameObject.SetActive(false);
+        }
     }
+
+    AudioSource musicSource;
 
     public bool isPaused;
     public string PrevScene;
+    private void Start()
+    {
+        musicSource = GetComponent<AudioSource>();
+    }
 
+
+    public void ChangeMusic(AudioClip newMu)
+    {
+        if (newMu != musicSource.clip)
+        {
+            Debug.Log("they arent the same?");
+            musicSource.Stop();
+            musicSource.clip = newMu;
+            musicSource.loop = true;
+            musicSource.Play();
+        }
+    }
 }

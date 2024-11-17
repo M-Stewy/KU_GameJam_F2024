@@ -6,9 +6,11 @@ public class playerController : MonoBehaviour
 {
     bool isDead = false;
 
-    private Rigidbody2D rb;
+    Rigidbody2D rb;
+    SpriteRenderer sr;
     [SerializeField]
     private CapsuleCollider2D cc;
+
     private Vector2 moveDir;
     [HideInInspector]
     public bool facingRight;
@@ -58,22 +60,6 @@ public class playerController : MonoBehaviour
     public AudioClip Grapple2;
     public AudioClip Grapple3;
 
-
-
-    public enum currentAction {
-        idle= 0,
-        walking = 1,
-        jumping = 2,
-        falling = 3,
-        wallClinging = 4,
-        dashing = 5,
-        shrinking = 6,
-        growing = 7,
-        grappling = 8,
-        walljumping = 9
-    }
-    public currentAction curAct;
-
     public enum currentTile
     {
         normal = 0,
@@ -83,7 +69,6 @@ public class playerController : MonoBehaviour
     public currentTile currTile;
 
 
-    [SerializeField] SpriteRenderer sprRender;
     public enum size
     {
         Small = 0,
@@ -97,6 +82,7 @@ public class playerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponent<CapsuleCollider2D>();
+        sr = GetComponentInChildren<SpriteRenderer>();
 
         jumpsLeft = ExtraJumpAmount;
         jumpTimer = JumpTime;
@@ -113,11 +99,11 @@ public class playerController : MonoBehaviour
             animator.SetBool("isMoving", true);
             if (rb.linearVelocity.x > 0.01)
             {
-                sprRender.flipX = true;
+                sr.flipX = true;
             }
             else if (rb.linearVelocity.x < 0.01)
             {
-                sprRender.flipX = false;
+                sr.flipX = false;
             }
         }
         else
@@ -129,11 +115,11 @@ public class playerController : MonoBehaviour
         if(Mathf.Round(moveDir.x) > 0)
         {
             facingRight = true;
-            sprRender.flipX = true;
+            sr.flipX = true;
             animator.SetBool("isMoving", true);
         }else if(Mathf.Round(moveDir.x) < 0)
         {
-            sprRender.flipX = false; 
+            sr.flipX = false; 
             animator.SetBool("isMoving", true);
             facingRight = false;
         }
@@ -164,6 +150,8 @@ public class playerController : MonoBehaviour
 
         if (isGrounded && moveDir.x != 0) PlayWalkSFX(false);
         if(moveDir.x == 0 || !isGrounded) PlayWalkSFX(true);
+
+        if(PlayerSize == size.Medium) { sr.transform.localScale = Vector3.one; }
     }
 
     private void FixedUpdate()

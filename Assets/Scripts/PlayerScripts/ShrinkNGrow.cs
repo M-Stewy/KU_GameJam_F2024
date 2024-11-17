@@ -36,16 +36,19 @@ public class ShrinkNGrow : MonoBehaviour
                 cc.size = defaultCCSize / ShrinkMultiplier;
                 cc.offset = defaultCCOffset / ShrinkMultiplier;
                 rb.mass = SmallMass;
+                PC.transform.GetChild(0).transform.localScale = Vector3.one /ShrinkMultiplier;
                 break;
             case playerController.size.Medium:
                 cc.size = defaultCCSize;
                 cc.offset = defaultCCOffset;
                 rb.mass = defaultRBMass;
+                PC.transform.GetChild(0).transform.localScale = Vector3.one;
                 break;
             case playerController.size.Large:
-                cc.size = defaultCCSize * ShrinkMultiplier;
-                cc.offset = defaultCCOffset * ShrinkMultiplier;
+                cc.size = defaultCCSize * GrowMuliplier;
+                cc.offset = defaultCCOffset * GrowMuliplier;
                 rb.mass = LargeMass;
+                PC.transform.GetChild(0).transform.localScale = Vector3.one * GrowMuliplier;
                 break;
         }
     }
