@@ -219,8 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4fccfbae487428037d81a6e27f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1719398823}
-  parallaxEffect: 0.2
+  parallaxEffect: 0.075
   DoLooping: 0
   play: {fileID: 1864998922}
 --- !u!1 &178410013
@@ -2358,8 +2357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4fccfbae487428037d81a6e27f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1719398823}
-  parallaxEffect: 0.075
+  parallaxEffect: 0.05
   DoLooping: 0
   play: {fileID: 1864998922}
 --- !u!1 &514604077
@@ -2857,62 +2855,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2073200464879265952, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2176557662140782103, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2676442694351713838, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6434852900076831964, guid: 54f4db105492c154c8780e295c655101, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6528729261163286519, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6534085876959673179, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: jumpPower
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6534085876959673179, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: PlayerSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7891349586326444692, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7891349586326444692, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7891349586326444692, guid: 54f4db105492c154c8780e295c655101, type: 3}
       propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1486736014}
-    - target: {fileID: 7891349586326444692, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7891349586326444692, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPause
-      objectReference: {fileID: 0}
-    - target: {fileID: 7891349586326444692, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7891349586326444692, guid: 54f4db105492c154c8780e295c655101, type: 3}
-      propertyPath: m_ActionEvents.Array.data[18].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8076307640599451629, guid: 54f4db105492c154c8780e295c655101, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.05
@@ -11402,8 +11352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4fccfbae487428037d81a6e27f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1719398823}
-  parallaxEffect: 0.1
+  parallaxEffect: 0.15
   DoLooping: 0
   play: {fileID: 1864998922}
 --- !u!1 &1292288864
@@ -12318,8 +12267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4fccfbae487428037d81a6e27f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1719398823}
-  parallaxEffect: 0.15
+  parallaxEffect: 0.1
   DoLooping: 0
   play: {fileID: 1864998922}
 --- !u!1660057539 &9223372036854775807

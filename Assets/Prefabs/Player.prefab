@@ -21,9 +21,7 @@ GameObject:
   - component: {fileID: 6528729261163286519}
   - component: {fileID: 2676442694351713838}
   - component: {fileID: 3870028070470714096}
-  - component: {fileID: 2094272589097239527}
-  - component: {fileID: 7329964610993197329}
-  - component: {fileID: 4043453871942816340}
+  - component: {fileID: 6065554964840311505}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -90,9 +88,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -2916467683118668699, guid: 2f48a54a052c7e24a8502e71a24d8d5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
@@ -135,8 +133,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.0046334267}
-  m_Size: {x: 1, y: 1.9443984}
+  m_Offset: {x: 0.026565075, y: -0.004471004}
+  m_Size: {x: 1.4958773, y: 1.9626073}
   m_Direction: 0
 --- !u!50 &2080935458994416460
 Rigidbody2D:
@@ -474,7 +472,19 @@ MonoBehaviour:
     m_ActionId: b8a3f004-28d6-46a1-a707-9fc897b7ec96
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2de98848-2275-4ab3-b832-6c697bfed41e
     m_ActionName: 'Player/Pause[/Keyboard/escape,/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -499,12 +509,13 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 8
+  animator: {fileID: 6065554964840311505}
   canDash: 0
   StopGrav: 0
   jumping: 0
   JumpTime: 15
   jumpPower: 10
-  ExtraJumpAmount: 1
+  ExtraJumpAmount: 0
   FallForce: 17.5
   JumpMoveSpeedMultipler: 0.2
   movespeed: 25
@@ -523,7 +534,8 @@ MonoBehaviour:
   Grapple3: {fileID: 8300000, guid: 3ec5a8fedf5654f4886f2e310ea742f2, type: 3}
   curAct: 0
   currTile: 0
-  PlayerSize: 0
+  sprRender: {fileID: 9100956145398309460}
+  PlayerSize: 1
   GroundCheckFixer: {x: 0.49, y: 0.5, z: 0}
   GroundCheckOffset: {x: 0.03, y: 0.7, z: 0}
 --- !u!114 &2073200464879265952
@@ -541,7 +553,7 @@ MonoBehaviour:
   cc: {fileID: 7270313735229550556}
   wallLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   jumpPowerHor: 10
   jumpPowerVer: 15
   WallCheckOffset: {x: 0.26, y: -0.09, z: 0}
@@ -553,13 +565,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6434852900076831964}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e4d4683317172d489aa7f9335c52b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 0.35
-  dashTime: 5
+  dashForce: 15
+  dashTime: 0.35
 --- !u!114 &6528729261163286519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +595,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6434852900076831964}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2072b0d3687d48d40907016adbb567c9, type: 3}
   m_Name: 
@@ -608,6 +620,9 @@ MonoBehaviour:
   interactableDistance: 2
 --- !u!82 &2094272589097239527
 AudioSource:
+--- !u!95 &6065554964840311505
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -897,3 +912,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26b76833c8deca341b7c73805df1cc8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

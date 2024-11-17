@@ -9,6 +9,7 @@ public class Dash : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float dashForce;
     [SerializeField] float dashTime;
+    
     bool dashing;
     public void OnDash(InputAction.CallbackContext context)
     {
@@ -34,6 +35,7 @@ public class Dash : MonoBehaviour
     IEnumerator DoDash()
     {
         PC.PlayerOtherSFXs("Dash");
+        PC.animator.SetBool("isDashing", true);
         PC.canDash = false;
         PC.StopGrav = true;
         Debug.Log("test for Dash");
@@ -44,6 +46,7 @@ public class Dash : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         PC.StopGrav = false;
         rb.gravityScale = 1;
+        PC.animator.SetBool("isDashing", false);
     }
 
 }
