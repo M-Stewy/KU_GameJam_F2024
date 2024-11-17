@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_text: Audio Stuff
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
-  m_sharedMaterial: {fileID: 7203644105717938274, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
+  m_sharedMaterial: {fileID: -8341164087844436513, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_text: Music Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
-  m_sharedMaterial: {fileID: 7203644105717938274, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
+  m_sharedMaterial: {fileID: -8341164087844436513, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2673,7 +2673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1510016885
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3034,7 +3034,7 @@ MonoBehaviour:
   m_text: SFX Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
-  m_sharedMaterial: {fileID: 7203644105717938274, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
+  m_sharedMaterial: {fileID: -8341164087844436513, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3492,7 +3492,7 @@ MonoBehaviour:
   m_text: Master Volume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
-  m_sharedMaterial: {fileID: 7203644105717938274, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
+  m_sharedMaterial: {fileID: -8341164087844436513, guid: c205cdc86e74f1240bcb17988d37d3ff, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
