@@ -155,9 +155,9 @@ public class playerController : MonoBehaviour
     {
         if(context.started)
         {
+            if (isGrounded) asses[1].Play();
             jumpsPressed++;
             jumping = true;
-            asses[1].Play();
         }
         if (context.canceled)
         {
@@ -214,8 +214,8 @@ public class playerController : MonoBehaviour
     }
     private void AirJump()
     {
+        asses[1].Play();
         rb.linearVelocity = new Vector2(rb.linearVelocityX, jumpPower * 1.25f);
-        //rb.AddForce(new Vector2(rb.linearVelocity.x, jumpPower * 50));
         jumpsLeft--;
         jumping = false;
     }
@@ -250,15 +250,12 @@ public class playerController : MonoBehaviour
         {
             case currentTile.normal:
                 asses[0].PlayOneShot(NormalGroundWalk);
-                Debug.Log("Norma");
                 break;    
             case currentTile.icy:
                 asses[0].PlayOneShot(IcyWalk);
-                Debug.Log("Icy");
                 break;
             case currentTile.snowy:
                 asses[0].PlayOneShot(SnowyWalk);
-                Debug.Log("Snowy");
                 break;
         }
     }
@@ -269,18 +266,23 @@ public class playerController : MonoBehaviour
         switch (sfxToPlay)
         {
             case "Dash":
+                asses[2].volume = .56f;
                 asses[2].PlayOneShot(DashSFX);
                 break;
             case "WallJump":
+                asses[2].volume = 1.1f;
                 asses[2].PlayOneShot(WallJumpSFX);
                 break;
             case "Grapple":
+                asses[2].volume = 1f;
                 asses[2].PlayOneShot(Grapple2);
                 break;
             case "Shrink":
+                asses[2].volume = 1f;
                 asses[2].PlayOneShot(ShrinkSFX);
                 break;
             case "Grow":
+                asses[2].volume = 1f;
                 asses[2].PlayOneShot(GrowSFX);
                 break;
         }

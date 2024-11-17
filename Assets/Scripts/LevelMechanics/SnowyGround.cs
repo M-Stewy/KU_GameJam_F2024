@@ -16,7 +16,10 @@ public class SnowyGround : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        collision.gameObject.GetComponent<Rigidbody2D>().linearDamping = 1; // needs to be default value, make it auto later
-        collision.gameObject.GetComponent<playerController>().currTile = playerController.currentTile.normal;
+        if(collision.gameObject.TryGetComponent<playerController>(out playerController pc)) {
+            collision.gameObject.GetComponent<Rigidbody2D>().linearDamping = 1; // needs to be default value, make it auto later
+            pc.currTile = playerController.currentTile.normal;
+        }
+        
     }
 }

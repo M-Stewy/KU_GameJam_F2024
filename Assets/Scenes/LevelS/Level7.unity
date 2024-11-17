@@ -4224,6 +4224,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5415049007945108008, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Constraints
       value: 5
@@ -4288,6 +4296,14 @@ PrefabInstance:
     - target: {fileID: 196416250519026091, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5415049007945108008, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Constraints
@@ -4354,6 +4370,14 @@ PrefabInstance:
     - target: {fileID: 196416250519026091, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Name
       value: BoxThatCanBeBroken!
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5415049007945108008, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Constraints
@@ -7055,6 +7079,14 @@ PrefabInstance:
     - target: {fileID: 196416250519026091, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5415049007945108008, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Constraints

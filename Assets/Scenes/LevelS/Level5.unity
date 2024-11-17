@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3216097370224716314, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Size.x
       value: 4
@@ -2945,6 +2953,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3216097370224716314, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -3085,6 +3101,14 @@ PrefabInstance:
     - target: {fileID: 196416250519026091, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3216097370224716314, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Size.x
@@ -16778,6 +16802,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3216097370224716314, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -17177,6 +17209,14 @@ PrefabInstance:
     - target: {fileID: 196416250519026091, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3216097370224716314, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Size.x
@@ -17597,6 +17637,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3216097370224716314, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -17871,6 +17919,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3216097370224716314, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Size.x
       value: 4
@@ -18070,6 +18126,14 @@ PrefabInstance:
     - target: {fileID: 196416250519026091, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Name
       value: BoxThatCanBeBroken! (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 762239102459230236, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
+      propertyPath: size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3216097370224716314, guid: 2b9cb73940837fd4680c92bb1e0635cc, type: 3}
       propertyPath: m_Size.x

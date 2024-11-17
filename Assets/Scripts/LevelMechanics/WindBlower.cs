@@ -3,7 +3,7 @@ using UnityEngine;
 public class WindBlower : MonoBehaviour
 {
     AreaEffector2D ae;
-
+    [SerializeField] AudioClip wind2;
     [SerializeField] enum dir //will also use this to determine which direction the sprite animates
     {
         up =0, down = 1, left = 2, right = 3,
@@ -40,5 +40,9 @@ public class WindBlower : MonoBehaviour
         ae.drag = windDrag;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        AudioSource.PlayClipAtPoint(wind2,collision.transform.position, 1f);
+    }
 
 }
