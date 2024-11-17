@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour
     SpriteRenderer sr;
     [SerializeField]
     private CapsuleCollider2D cc;
+    ParticleSystem ps;
 
     private Vector2 moveDir;
     [HideInInspector]
@@ -83,6 +84,7 @@ public class playerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cc = GetComponent<CapsuleCollider2D>();
         sr = GetComponentInChildren<SpriteRenderer>();
+        ps = GetComponent<ParticleSystem>();
 
         jumpsLeft = ExtraJumpAmount;
         jumpTimer = JumpTime;
@@ -335,8 +337,16 @@ public class playerController : MonoBehaviour
 
     public void KillSelf() // makes it so the player can not do anything at all anymore because thats what happens when you die :O
     {
-        if (Random.Range(0, 2) == 0) AudioSource.PlayClipAtPoint(deathNoise2, transform.position, 1.2f);
-        else AudioSource.PlayClipAtPoint(deathNoise1, transform.position, 1.1f);
+        sr.enabled = false;
+        ps.Play();
+
+        asses[0].Stop();
+        asses[1].Stop();
+        asses[2].Stop();
+        asses[2].volume = 2f;
+
+        if (Random.Range(0, 2) == 0) asses[2].PlayOneShot(deathNoise1);
+        else asses[2].PlayOneShot(deathNoise2);
 
         isDead = true;
         if(TryGetComponent<PlayerInput>(out PlayerInput input))

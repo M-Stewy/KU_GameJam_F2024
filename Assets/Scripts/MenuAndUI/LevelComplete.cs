@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class LevelComplete : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GameManagment.Instance.AddToCompleted(SceneManager.GetActiveScene().name);
             load.LoadaLevel("LevelSelect");
         }
     }

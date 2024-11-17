@@ -31,11 +31,13 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 1;
             thePauseMenu.SetActive(false);
+            GameManagment.Instance.isPaused = false;
         }
         else
         {
             Time.timeScale = 0;
             thePauseMenu.SetActive(true);
+            GameManagment.Instance.isPaused = true;
         }
     }
 
