@@ -42,7 +42,7 @@ public class playerController : MonoBehaviour
     AudioSource[] asses;
     [SerializeField] AudioClip deathNoise1;
     [SerializeField] AudioClip deathNoise2;
-
+    [SerializeField] AudioClip LandedSFX;
     [SerializeField] AudioClip NormalGroundWalk;
     [SerializeField] AudioClip IcyWalk;
     [SerializeField] AudioClip SnowyWalk;
@@ -265,7 +265,8 @@ public class playerController : MonoBehaviour
 
     public void PlayerOtherSFXs(string sfxToPlay)
     {
-        switch(sfxToPlay)
+        if (asses[2].isPlaying) return;
+        switch (sfxToPlay)
         {
             case "Dash":
                 asses[2].PlayOneShot(DashSFX);
@@ -274,7 +275,7 @@ public class playerController : MonoBehaviour
                 asses[2].PlayOneShot(WallJumpSFX);
                 break;
             case "Grapple":
-                asses[2].PlayOneShot(Grapple1);
+                asses[2].PlayOneShot(Grapple2);
                 break;
             case "Shrink":
                 asses[2].PlayOneShot(ShrinkSFX);
@@ -296,6 +297,11 @@ public class playerController : MonoBehaviour
                 lowerVolume(true, index);
            } else asses[index].Stop();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        asses[1].PlayOneShot(LandedSFX);
     }
 
 
