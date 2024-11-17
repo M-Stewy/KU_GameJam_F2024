@@ -27,9 +27,12 @@ public class WallJump : MonoBehaviour
 
         if (touchingWall)
         {
+            PC.animator.SetBool("isOnWall", true);
             PC.ResetJumpVars(false);
         }
-
+        
+            PC.animator.SetBool("isOnWall", false);
+        
     }
 
     private void FixedUpdate()
@@ -38,6 +41,12 @@ public class WallJump : MonoBehaviour
         {
             DoWallJump();
         }
+        if (!touchingWall)
+        {
+            PC.animator.SetBool("JumpedOffWall", true);
+        }
+
+
     }
 
     void DoWallJump()
@@ -52,7 +61,7 @@ public class WallJump : MonoBehaviour
             rb.linearVelocity = new Vector2(jumpPowerHor, jumpPowerVer);
             //rb.AddForce(new Vector2(jumpPowerHor, jumpPowerVer),ForceMode2D.Impulse);
         }
-
+        
         PC.jumping = false;
     }
 

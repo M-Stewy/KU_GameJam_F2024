@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: c70f788ebbb761c40bcb8b77d4b9d27e
+guid: 13f845877b2afd74b838802cfaa6be1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1106369938321944887
-    second: Character_Falling_0
-  - first:
-      213: 3140249937293377086
-    second: Character_Falling_1
-  - first:
-      213: -1794706267348763856
-    second: Character_Falling_2
-  - first:
-      213: 2803094385312571623
-    second: Character_Falling_3
+      213: -3972307343499740885
+    second: Character_Dash_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,11 +139,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Falling_0
+      name: Character_Dash_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 20
+        y: 0
         width: 80
         height: 96
       alignment: 0
@@ -163,74 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 731b9dbd89d9a5f00800000000000000
-      internalID: 1106369938321944887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Falling_1
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 20
-        width: 80
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e3e70522ea8649b20800000000000000
-      internalID: 3140249937293377086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Falling_2
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 20
-        width: 80
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03b728a982ce717e0800000000000000
-      internalID: -1794706267348763856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character_Falling_3
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 20
-        width: 80
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7e0a274fd7796e620800000000000000
-      internalID: 2803094385312571623
+      spriteID: b29b50c64878fd8c0800000000000000
+      internalID: -3972307343499740885
       vertices: []
       indices: 
       edges: []
@@ -239,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 13f08f36e256eac4b81c2e1f62111b0f
+    spriteID: 7eb2649a8cf3d2b4a829ba6294ef8aab
     internalID: 0
     vertices: []
     indices: 
@@ -249,10 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Character_Falling_0: 1106369938321944887
-      Character_Falling_1: 3140249937293377086
-      Character_Falling_2: -1794706267348763856
-      Character_Falling_3: 2803094385312571623
+      Character_Dash_0: -3972307343499740885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

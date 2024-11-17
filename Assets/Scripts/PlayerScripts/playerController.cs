@@ -97,13 +97,13 @@ public class playerController : MonoBehaviour
             animator.SetBool("isMoving", false);
         }
 
-        if(rb.linearVelocity.y > 0)
+        if(rb.linearVelocity.y > 0.01)
         {
             animator.SetFloat("jumpVelocity", rb.linearVelocity.y);
         }
-        else
+        else if(rb.linearVelocity.y < 0.01)
         {
-
+            animator.SetFloat("jumpVelocity", rb.linearVelocity.y);
         }
         if (CheckGrounded())
         {
