@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject thePauseMenu;
-
-     public void OnPause(InputAction.CallbackContext context)
+    [SerializeField] LoadLevel theLevel;
+      public void OnPause(InputAction.CallbackContext context)
     {
         if(context.started)
         {
@@ -45,39 +45,18 @@ public class PauseMenu : MonoBehaviour
     public void Settings() //Open the settings menu with some sort of transisiton before it loads
     {
         Time.timeScale = 1;
-        StartCoroutine(settingsTransition());
-    }
-    IEnumerator settingsTransition()
-    {
-        yield return new WaitForSeconds(1);
-        GameManagment.Instance.PrevScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("Settings");
+        theLevel.LoadaLevel("Settings");
     }
     public void Controls() // Opens the Controls menu with some sort of transisiton before it loads
     {
         Time.timeScale = 1;
-        StartCoroutine(controlsTransition());
-    }
-    IEnumerator controlsTransition()
-    {
-        yield return new WaitForSeconds(1);
-        GameManagment.Instance.PrevScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("Controls");
+        theLevel.LoadaLevel("Controls");
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1;
-        StartCoroutine(transisitionToMenu());
+        theLevel.LoadaLevel("MainMenu");
     }
-
-    IEnumerator transisitionToMenu()
-    {
-        yield return new WaitForSeconds(1);
-        GameManagment.Instance.PrevScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("MainMenu");
-    }
-
-
 
 }
