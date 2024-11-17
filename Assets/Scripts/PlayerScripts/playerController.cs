@@ -14,7 +14,7 @@ public class playerController : MonoBehaviour
     public bool facingRight;
 
     [SerializeField] LayerMask GroundLayer;
-
+    public Animator animator; 
     public bool isGrounded { get; private set; }
     public bool canDash;
     public bool StopGrav;
@@ -38,6 +38,8 @@ public class playerController : MonoBehaviour
 
     [SerializeField] float movespeed;
 
+
+    [SerializeField] SpriteRenderer sprRender;
     public enum size
     {
         Small = 0,
@@ -60,23 +62,59 @@ public class playerController : MonoBehaviour
     void Update()
     {
         if(isDead) return;
+        /*
+        if(rb.linearVelocity.x < 0.01 || rb.linearVelocity.x > 0.01)
+        {
+            animator.SetBool("isMoving", true);
+            if (rb.linearVelocity.x > 0.01)
+            {
+                sprRender.flipX = true;
+            }
+            else if (rb.linearVelocity.x < 0.01)
+            {
+                sprRender.flipX = false;
+            }
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+        */
 
-        if(moveDir.x > 0)
+        if(Mathf.Round(moveDir.x) > 0)
         {
             facingRight = true;
-        }else if(moveDir.x < 0)
+            sprRender.flipX = true;
+            animator.SetBool("isMoving", true);
+        }else if(Mathf.Round(moveDir.x) < 0)
         {
+            sprRender.flipX = false; 
+            animator.SetBool("isMoving", true);
             facingRight = false;
         }
+        else if (Mathf.Round(moveDir.x) == 0)
+        {
+            animator.SetBool("isMoving", false);
+        }
 
+        if(rb.linearVelocity.y > 0)
+        {
+            animator.SetFloat("jumpVelocity", rb.linearVelocity.y);
+        }
+        else
+        {
+
+        }
         if (CheckGrounded())
         {
             ResetJumpVars();
             isGrounded = true;
             canDash = true;
+            animator.SetBool("isGrounded", isGrounded);
         }
         else {
-            isGrounded = false; 
+            isGrounded = false;
+            animator.SetBool("isGrounded", isGrounded);
         }
     }
 
