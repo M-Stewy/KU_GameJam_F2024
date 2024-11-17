@@ -219,8 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4fccfbae487428037d81a6e27f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1719398823}
-  parallaxEffect: 0.2
+  parallaxEffect: 0.075
   DoLooping: 0
   play: {fileID: 1864998922}
 --- !u!1 &178410013
@@ -2358,8 +2357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4fccfbae487428037d81a6e27f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1719398823}
-  parallaxEffect: 0.075
+  parallaxEffect: 0.05
   DoLooping: 0
   play: {fileID: 1864998922}
 --- !u!1 &514604077
@@ -11402,8 +11400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4fccfbae487428037d81a6e27f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1719398823}
-  parallaxEffect: 0.1
+  parallaxEffect: 0.15
   DoLooping: 0
   play: {fileID: 1864998922}
 --- !u!1 &1292288864
@@ -12318,8 +12315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7c4fccfbae487428037d81a6e27f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1719398823}
-  parallaxEffect: 0.15
+  parallaxEffect: 0.1
   DoLooping: 0
   play: {fileID: 1864998922}
 --- !u!1660057539 &9223372036854775807
