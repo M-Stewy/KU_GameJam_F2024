@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ public class ButtonForDoors : MonoBehaviour
     [SerializeField] Sprite Unpressed;
     [SerializeField] Sprite Pressed;
 
+    
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -26,6 +29,7 @@ public class ButtonForDoors : MonoBehaviour
     {
         ass.PlayOneShot(pressButton);
         sr.sprite = Pressed;
+        
         foreach (GameObject door in DoorsToOpen) // goes through all doors and moves them to their endpoints
         {
             door.GetComponentInChildren<DoorsForButton>().MoveTheDoors();
@@ -37,4 +41,6 @@ public class ButtonForDoors : MonoBehaviour
         ass.PlayOneShot(releaseButton);
         sr.sprite = Unpressed;
     }
+
+ 
 }

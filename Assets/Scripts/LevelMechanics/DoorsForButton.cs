@@ -6,7 +6,7 @@ public class DoorsForButton : MonoBehaviour
 {
     [SerializeField] SpriteRenderer sr;
     [SerializeField] BoxCollider2D bc;
-
+    
 
     [SerializeField] Vector2 doorSize;
     [Tooltip("how smooth the door looks as it moves")]
@@ -18,7 +18,8 @@ public class DoorsForButton : MonoBehaviour
     [SerializeField] Transform StartPos; // Should be exactly where the doors starting Transform is
     [SerializeField] Transform EndPos;  // where the door should end up at after its been moved
 
-
+    public bool isTimed;
+    public float amountSecs;
     Vector3 moveDir;
 
     private void Start()
@@ -47,13 +48,33 @@ public class DoorsForButton : MonoBehaviour
     }
 
 
+    
+
     public IEnumerator MoveDoor()
     {
+        
         transform.position = Vector2.MoveTowards(transform.position, EndPos.position, doorMoveIncrement);
         yield return new WaitForSeconds(1/doorSpeed);
+
+
         if(transform.position != EndPos.position)
         {
             MoveTheDoors();
+            
+
+        }
+        else
+        {
+            if (isTimed)
+            {
+                yield return new WaitForSeconds(amountSecs);
+                isTimed = false;
+                EndPos = StartPos;
+                StartPos = transform;
+
+                MoveTheDoors();
+            }
+           
         }
     }
 
