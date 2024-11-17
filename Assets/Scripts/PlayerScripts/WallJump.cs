@@ -44,11 +44,13 @@ public class WallJump : MonoBehaviour
     {
         if(facingRight)
         {
-            rb.AddForce(new Vector2(-jumpPowerHor, jumpPowerVer),ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector2(-jumpPowerHor, jumpPowerVer);
+            //rb.AddForce(new Vector2(-jumpPowerHor, jumpPowerVer),ForceMode2D.Impulse);
         }
         else
         {
-            rb.AddForce(new Vector2(jumpPowerHor, jumpPowerVer),ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector2(jumpPowerHor, jumpPowerVer);
+            //rb.AddForce(new Vector2(jumpPowerHor, jumpPowerVer),ForceMode2D.Impulse);
         }
 
         PC.jumping = false;
