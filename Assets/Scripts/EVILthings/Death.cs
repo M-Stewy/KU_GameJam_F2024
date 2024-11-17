@@ -6,6 +6,8 @@ public class Death : MonoBehaviour
 {
     playerController PC;
     Scene scene;
+    [SerializeField]
+    private LoadLevel load;
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
@@ -36,6 +38,7 @@ public class Death : MonoBehaviour
         PC.KillSelf();
         // play the cutscene or whatever we want to do before reloading
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(scene.name);
+        load.LoadaLevel(scene.name);
+        //SceneManager.LoadScene(scene.name);
     }
 }
