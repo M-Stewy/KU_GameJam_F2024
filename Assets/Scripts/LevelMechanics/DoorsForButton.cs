@@ -6,6 +6,9 @@ public class DoorsForButton : MonoBehaviour
 {
     [SerializeField] SpriteRenderer sr;
     [SerializeField] BoxCollider2D bc;
+    AudioSource ass;
+    [SerializeField] AudioClip startMove;
+    [SerializeField] AudioClip loopMove;
     
 
     [SerializeField] Vector2 doorSize;
@@ -18,6 +21,8 @@ public class DoorsForButton : MonoBehaviour
     [SerializeField] Transform StartPos; // Should be exactly where the doors starting Transform is
     [SerializeField] Transform EndPos;  // where the door should end up at after its been moved
 
+    bool doOnce = true;
+
     public bool isTimed;
     public float amountSecs;
     Vector3 moveDir;
@@ -26,6 +31,7 @@ public class DoorsForButton : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
+        ass = GetComponent<AudioSource>();
 
         sr.size = doorSize;
         bc.size = doorSize;
@@ -44,15 +50,22 @@ public class DoorsForButton : MonoBehaviour
     /// </summary>
     public void MoveTheDoors()
     {
+        if (doOnce)
+        {
+            ass.PlayOneShot(startMove);
+            doOnce = false;
+        }
         StartCoroutine(MoveDoor());
     }
 
-
-    
-
     public IEnumerator MoveDoor()
     {
-        
+        if (!ass.isPlaying)
+        {
+            ass.volume = .75f;
+            ass.loop = true;
+            ass.Play();
+        }
         transform.position = Vector2.MoveTowards(transform.position, EndPos.position, doorMoveIncrement);
         yield return new WaitForSeconds(1/doorSpeed);
 
@@ -60,8 +73,6 @@ public class DoorsForButton : MonoBehaviour
         if(transform.position != EndPos.position)
         {
             MoveTheDoors();
-            
-
         }
         else
         {
@@ -74,7 +85,7 @@ public class DoorsForButton : MonoBehaviour
 
                 MoveTheDoors();
             }
-           
+           ass.Stop();
         }
     }
 
