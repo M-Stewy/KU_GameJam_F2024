@@ -22,8 +22,6 @@ public class GameManagment : MonoBehaviour
     AudioSource musicSource;
     public List<string> CompletedStages { get; private set; } = new List<string>();
 
-    public List<string> CompletedStages { get; private set; }   = new List<string>();
-
     public bool isPaused;
     public string PrevScene;
     private void Start()
