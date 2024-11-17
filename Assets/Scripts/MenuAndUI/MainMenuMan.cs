@@ -4,57 +4,42 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuMan : MonoBehaviour
 {
+
+    LoadLevel level;
+    private void Start()
+    {
+        level =  GetComponent<LoadLevel>();
+    }
+
     public void StartGame()// opens level select with some sort of transisiton before it loads
     {
-        StartCoroutine(startTransition());
+        level.LoadaLevel("LevelSelect");
     }
-     IEnumerator startTransition()
-     {
-        yield return new WaitForSeconds(1);
-        GameManagment.Instance.PrevScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("LevelSelect");
-     }
 
 
     public void Settings() //Open the settings menu with some sort of transisiton before it loads
     {
-        StartCoroutine(settingsTransition());
-    }
-    IEnumerator settingsTransition()
-    {
-        yield return new WaitForSeconds(1);
-        GameManagment.Instance.PrevScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("Settings");
+        level.LoadaLevel("Settings");
     }
 
     public void Controls() // Opens the Controls menu with some sort of transisiton before it loads
     {
-        StartCoroutine (controlsTransition());
+        level.LoadaLevel("Controls");
     }
-    IEnumerator controlsTransition()
-    {
-        yield return new WaitForSeconds(1);
-        GameManagment.Instance.PrevScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("Controls");
-    }
+    
 
     public void Credits()
     {
-        StartCoroutine(transisitionCredits());
+        level.LoadaLevel("Credits");
     }
 
-    IEnumerator transisitionCredits()
-    {
-        yield return new WaitForSeconds(1);
-        GameManagment.Instance.PrevScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("Credits");
-    }
     public void QuitGame() // quits game with some sort of transisiton before
     {
         StartCoroutine(QuitTransition());
     }
     IEnumerator QuitTransition()
     {
+        level.LoadaLevel("MainMenu");
         yield return new WaitForSeconds(1); 
         Application.Quit();
     }
