@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destrutionNoise: {fileID: 8300000, guid: ce657ad4b7e3a6d4095cc1e7f95ef85e, type: 3}
+  size: {x: 0, y: 0}
 --- !u!82 &6560341788431130474
 AudioSource:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ AudioSource:
   m_GameObject: {fileID: 196416250519026091}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1161138647023624091, guid: 83b68f313725b83448827bfd15ad90f3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 183ac00634805be439bfc8bed8820c5d, type: 3}
   m_Resource: {fileID: 8300000, guid: 183ac00634805be439bfc8bed8820c5d, type: 3}
   m_PlayOnAwake: 0

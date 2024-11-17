@@ -1,16 +1,30 @@
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class AudioSliders : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] AudioMixerGroup mixerGroup;
+    [SerializeField] AudioMixer MainMixer;
+    [SerializeField] Slider slider;
+
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey(mixerGroup.name))
+            LoadVolume();
+        SetMixerToSlider();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMixerToSlider()
     {
-        
+        float volume = slider.value;
+        MainMixer.SetFloat(mixerGroup.name, Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat(mixerGroup.name, volume);
+        Debug.Log("Setting volume of " + mixerGroup.name + " to " + volume);
+    }
+
+    void LoadVolume()
+    {
+        slider.value = PlayerPrefs.GetFloat(mixerGroup.name);
     }
 }
