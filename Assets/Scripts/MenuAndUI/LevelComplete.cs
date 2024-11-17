@@ -3,7 +3,10 @@ using UnityEngine;
 public class LevelComplete : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public LoadLevel load;
+    [SerializeField]
+    private LoadLevel load;
+
+
     void Start()
     {
         
